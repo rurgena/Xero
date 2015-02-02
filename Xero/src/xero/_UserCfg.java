@@ -81,10 +81,6 @@ public class _UserCfg {
 			int randno2 = 0;
 			List<String> list = new ArrayList<String>();
 
-			list.add(" Oct 2014");
-			list.add(" Nov 2014");
-			list.add(" Dec 2014");
-			list.add(" Jan 2015");
 			list.add(" Feb 2015");
 			list.add(" Mar 2015");
 			list.add(" Apr 2015");
@@ -144,10 +140,6 @@ public class _UserCfg {
 			List<String> list = new ArrayList<String>();
 
 			list.add("");
-			list.add(" Oct 2015");
-			list.add(" Nov 2015");
-			list.add(" Dec 2015");
-			list.add(" Jan 2016");
 			list.add(" Feb 2016");
 			list.add(" Mar 2016");
 			list.add(" Apr 2016");
@@ -274,10 +266,10 @@ public class _UserCfg {
 					nri_currencyAbbr = "JPY";
 					break;
 				case "NZD New Zealand Dollar" :
-					nri_currencyAbbr = " ";
+					nri_currencyAbbr = "NZD";
 					break;
 				case "USD United States Dollar" :
-					nri_currencyAbbr = "USD";
+					nri_currencyAbbr = " ";
 					break;
 				default: break;
 			}
@@ -305,11 +297,16 @@ public class _UserCfg {
 		int numberOfItems = generator.nextInt(5) + 1;
 		
 		list.add("BOOK");
+		list.add("DevD");
+		list.add("DevH");
 		list.add("GB1-White: Golf balls - white single");
 		list.add("GB3-White: Golf balls - white 3-pack");
 		list.add("GB6-White: Golf balls - white 6-pack");
 		list.add("GB9-White: Golf balls - white 9 pack");
-		list.add("PR-BR");
+		list.add("PMBr");
+		list.add("PMD");
+		list.add("PMDD");
+		list.add("PMWe");
 		list.add("Support-M");
 		list.add("Train-MS");
 		

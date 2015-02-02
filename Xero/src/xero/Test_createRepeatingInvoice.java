@@ -34,9 +34,8 @@ public class Test_createRepeatingInvoice {
 		// Display test description
 		log.disp(log.dividerS);
 		log.disp("Test Name  : Test_createRepeatingInvoice");
-		log.disp("Description: Test for creating a number of repeating invoices with randomized values");
+		log.disp("Description: Test for creating 10 repeating invoices with randomized values");
 		log.disp("             Details of newly created repeating invoices are verified for correctness");
-		log.disp("             The number of repeating invoices is set using the variable 'numOfRepeatingInvoices'");
 		log.disp(log.dividerM);
 
 		// Log in to Xero Accounting Software

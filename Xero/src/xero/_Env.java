@@ -18,7 +18,6 @@ public class _Env {
 	public WebDriverWait waiting;
 	public Actions builder;
 	public _PageElements xero = new _PageElements();
-//	public _UserCfg cfg = new _UserCfg();
 	public List<_UserCfg> cfgArray = new ArrayList<_UserCfg>();
 	
 	_Log log;
@@ -56,7 +55,7 @@ public class _Env {
 	} // public void addDelay
 
 	public void waitUntilVisible (String elementName) throws Exception {
-		waiting.until(ExpectedConditions.visibilityOf(findElement(elementName)));
+		waiting.until(ExpectedConditions.elementToBeClickable(findElement(elementName)));
 	} // public void waitUntilVisible
 	
 	public WebElement findElement(String elementName) {
@@ -215,7 +214,7 @@ public class _Env {
 		inputText(xero.login_email, email, "");
 		inputText(xero.login_password, password, "");
 		findElement(xero.login_password).submit();
-		assertTitle("Xero | Dashboard | Demo Company (NZ)", "[ERROR] Login failed: Check if your username and password are correct");
+		assertTitle("Xero | Dashboard | Demo Company (Global)", "[ERROR] Login failed: Check if your username and password are correct");
 		log.result("Login successful");
 	} // public void login
 	
@@ -224,9 +223,8 @@ public class _Env {
 		click(xero.home_user);
 		waitForElement(xero.home_user_logout);
 		click(xero.home_user_logout);
-		waitForElement(xero.logout);
-		click(xero.logout_logout);
-		assertTitle("Logged Out | Xero Accounting Software", "[ERROR] Logout failed.");
+		waitForElement("id=welldone-day");
+		assertTitle("Logged Out | Xero", "[ERROR] Logout failed.");
 		log.result("Logout successful");
 	} // public void logout
 	
@@ -270,7 +268,7 @@ public class _Env {
 
 		click(xero.nri_save);
 		addDelay(6);
-		assertTitle("Xero | Invoices | Demo Company (NZ)", "[ERROR] Failed to create a Repeating Invoice");
+		assertTitle("Xero | Invoices | Demo Company (Global)", "[ERROR] Failed to create a Repeating Invoice");
 
 		cfg.set_nri_invoiceDataId(findElement("text=Click to view.").getAttribute("href").substring(59, 95));
 		String dataId =	findElement("css=td[data-id=\"" + cfg.nri_invoiceDataId + "\"]").getAttribute("id");
@@ -308,7 +306,7 @@ public class _Env {
 		for (_UserCfg item: cfgArray) {
 			log.step("Go to New Repeating Invoice page");
 			gotoUrl(xero.url_newRepeatingInvoice);
-			assertTitle("Xero | New Repeating Invoice | Demo Company (NZ)", "[ERROR] Wrong page");
+			assertTitle("Xero | New Repeating Invoice | Demo Company (Global)", "[ERROR] Wrong page");
 			log.step("Displaying the details for Repeating Invoice [" + item.id + "]");
 			item.displayDetails();
 			createRepeatingInvoice(item);
@@ -316,7 +314,7 @@ public class _Env {
 			log.step("Opening the newly created Repeating Invoice [" + item.id + "] to verify if it exists..");
 			waitForElement("text=Click to view.");
 			click("text=Click to view.");
-			assertTitle("Xero | Edit Repeating Invoice | Demo Company (NZ)", "[ERROR] Wrong page");
+			assertTitle("Xero | Edit Repeating Invoice | Demo Company (Global)", "[ERROR] Wrong page");
 			log.result("Successfully opened the newly created Repeating Invoice [" + item.id + "]");
 			addDelay(6);
 		}
@@ -325,7 +323,7 @@ public class _Env {
 	public void getRepeatingInvoicesDetails () throws Exception {
 		log.step("Go to Invoices page");
 		gotoUrl(xero.url_invoices);
-		assertTitle("Xero | Invoices | Demo Company (NZ)", "[ERROR] Wrong page");
+		assertTitle("Xero | Invoices | Demo Company (Global)", "[ERROR] Wrong page");
 		log.step("Getting the details of the Repeating Invoices in the list..");
 		int numOfRepeatingInvoice = findElements("css=td[data-id]").size();
 		for (int i = 0; i < numOfRepeatingInvoice; i++) {

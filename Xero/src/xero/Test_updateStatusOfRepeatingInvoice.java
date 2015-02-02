@@ -44,7 +44,7 @@ public class Test_updateStatusOfRepeatingInvoice {
 		log.disp("Description: Test for updating the status of existing repeating invoices");
 		log.disp("             Operations performed are randomized (Save as Draft, Approve, Approve for Sending, Delete)");
 		log.disp("             New statuses of repeating invoices are verified");
-		log.disp("             The number of operations to perform is set using the variable 'numOfOperations'");
+		log.disp("             10 different operations are performed on randomly selected repeating invoices");
 		log.disp(log.dividerM);
 		
 		// Log in to Xero Accounting Software
